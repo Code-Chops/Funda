@@ -1,7 +1,8 @@
 # Fundalyzer
 
 # Instructions
-Run the `Api` project. A swagger UI page should open where you can perform 2 get requests.
+Run the `Api` project. A swagger UI page should open where you can perform 2 get requests. 
+You have to wait for the requests to work because of the BackgroundService that is pulling data from Funda in the meanwhile.
 
 # Justification
 For this project I used .NET 7 and C# 11 (because: new). I acknowledge this .NET version is not LTS.

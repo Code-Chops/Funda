@@ -2,9 +2,12 @@
 using Fundalyzer.Domain.Agencies.Ranked;
 using Fundalyzer.Domain.Estates;
 
-namespace Fundalyzer.Application.Adapters;
+namespace Fundalyzer.Application.Adapters.V1;
 
-public class AgencyRankAdapter
+/// <summary>
+/// Converts the domain objects to a contract.
+/// </summary>
+public sealed class AgencyRankToContractAdapter
 {
 	public TopAgenciesResponse ConvertToContract(RankedAgenciesResult result)
 	{

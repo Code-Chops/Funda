@@ -5,7 +5,7 @@ using Xunit.DependencyInjection.Logging;
 
 namespace Fundalyzer.Infrastructure.Api.IntegrationTests;
 
-public class Startup
+public sealed class Startup
 {
 	public void ConfigureServices(IServiceCollection services)
 	{

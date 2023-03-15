@@ -3,7 +3,7 @@
 namespace Fundalyzer.Infrastructure.Api.Exceptions;
 
 /// <summary>
-/// Will be thrown when the 
+/// Will be thrown when too many requests are being send to Funda.
 /// </summary>
 public sealed class TooManyRequestsException : HttpRequestException
 {

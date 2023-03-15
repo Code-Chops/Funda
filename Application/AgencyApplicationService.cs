@@ -1,4 +1,5 @@
-﻿using Fundalyzer.Application.Adapters;
+﻿using Fundalyzer.Application.Adapters.V1;
+using Fundalyzer.Application.BackgroundTasks;
 using Fundalyzer.Contracts.V1;
 using Fundalyzer.Domain.Agencies.Ranked;
 using Fundalyzer.Domain.Agencies.Ranked.Rankers;
@@ -6,10 +7,13 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Fundalyzer.Application;
 
-public class AgencyApplicationService : IAgencyApplicationService
+/// <summary>
+/// Retrieves ranked data from a memory cache. The data will be inserted by <see cref="AgencyRankingBackgroundService"/>.
+/// </summary>
+public sealed class AgencyApplicationService : IAgencyApplicationService
 {
 	private IMemoryCache MemoryCache { get; }
-	private AgencyRankAdapter AgencyRankAdapter { get; } = new();
+	private AgencyRankToContractAdapter AgencyRankToContractAdapter { get; } = new();
 	
 	public AgencyApplicationService(IMemoryCache memoryCache)
 	{
@@ -22,7 +26,7 @@ public class AgencyApplicationService : IAgencyApplicationService
 
 		return result is null 
 			? null 
-			: this.AgencyRankAdapter.ConvertToContract(result);
+			: this.AgencyRankToContractAdapter.ConvertToContract(result);
 	}
 	
 	public TopAgenciesResponse? GetAgenciesHavingMostEstatesInAmsterdam()
@@ -31,6 +35,6 @@ public class AgencyApplicationService : IAgencyApplicationService
 		
 		return result is null 
 			? null 
-			: this.AgencyRankAdapter.ConvertToContract(result);
+			: this.AgencyRankToContractAdapter.ConvertToContract(result);
 	}
 }

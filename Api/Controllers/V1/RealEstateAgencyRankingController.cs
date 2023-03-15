@@ -2,6 +2,9 @@
 
 namespace Fundalyzer.Api.Controllers.V1;
 
+/// <summary>
+/// Exposes 2 endpoints which both perform a filter / ranking on the estates of an agency.
+/// </summary>
 // This API is complete not RESTful or according to any standard. It is just a way to retrieve data from the application. 
 //
 // If another version will be released this version can be placed in the Api\Controllers\V1 folder and the new one in Api\V2, etc.

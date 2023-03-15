@@ -16,6 +16,7 @@ public static class ApiInfrastructureRegistrationExtensions
 		services.AddSingleton(settings);
 		services.AddSingleton<ILogger, Logger<FundaClient>>();
 
+		// Add Funda HTTP client
 		services.AddSingleton<IFundaHttpClient, FundaHttpClient>(_ =>
 		{
 			var restClient = new RestClient(c =>
@@ -26,6 +27,7 @@ public static class ApiInfrastructureRegistrationExtensions
 			return new FundaHttpClient(restClient, new RetryRateLimitingStrategy());
 		});
 		
+		// Add Funda client
 		services.AddSingleton<IEstateSupplyRepo, FundaClient>(serviceProvider =>
 		{
 			var requestDelayInMs = TimeSpan.FromMilliseconds(settings.RequestDelayInMilliseconds);

@@ -19,7 +19,7 @@ public abstract record AgencyRanker<TSelf> : IAgencyRanker
 			.Take(TSelf.RankingLength)
 			.ToList();
 
-		return new RankedAgenciesResult(this.City, this.Facilities, orderedAgencies);
+		return new RankedAgenciesResult(this.City, this.Facilities, orderedAgencies, this);
 	}
 	
 	protected AgencyRanker(IEstateSupplyRepo estateSupplyRepo)

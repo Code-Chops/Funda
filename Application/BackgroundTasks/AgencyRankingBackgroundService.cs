@@ -8,6 +8,7 @@ namespace Fundalyzer.Application.BackgroundTasks;
 
 /// <summary>
 /// A background service which retrieves real estate supply and orders / filters it based on an <see cref="IAgencyRanker"/>.
+/// It stores the data in a memory cache.
 /// </summary>
 public sealed class AgencyRankingBackgroundService : BackgroundService
 {

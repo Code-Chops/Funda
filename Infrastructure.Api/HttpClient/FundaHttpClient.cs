@@ -6,9 +6,9 @@ using Fundalyzer.Infrastructure.Api.V20090316;
 namespace Fundalyzer.Infrastructure.Api.HttpClient;
 
 /// <summary>
-/// Wraps an HTTP-client and contains a rate limit strategy which is executed when rate limiting occurs <see cref="IRateLimitingStrategy"/>/ 
+/// Wraps a REST HTTP-client and contains a rate limit strategy which is executed when rate limiting occurs <see cref="IRateLimitingStrategy"/>/ 
 /// </summary>
-internal class FundaHttpClient : IFundaHttpClient
+internal sealed class FundaHttpClient : IFundaHttpClient
 {
 	private IRestClient RestClient { get; }
 	private IRateLimitingStrategy RateLimitingStrategy { get; }

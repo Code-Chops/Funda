@@ -3,7 +3,7 @@ using Fundalyzer.Domain.Estates;
 
 namespace Fundalyzer.Infrastructure.Api.IntegrationTests;
 
-public class FundaApiTests
+public sealed class FundaApiTests
 {
     private IEstateSupplyRepo FundaClient { get; }
 
