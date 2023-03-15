@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Label="Main">
-        <RootNamespace>Funda.Application.UnitTests</RootNamespace>
+        <RootNamespace>Fundalyzer.Application.UnitTests</RootNamespace>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>

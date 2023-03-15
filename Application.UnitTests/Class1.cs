@@ -1,4 +1,4 @@
-﻿namespace Funda.Application.UnitTests;
+﻿namespace Fundalyzer.Application.UnitTests;
 
 public class Class1
 {

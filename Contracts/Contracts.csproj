@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Label="Main">
-        <RootNamespace>Funda.Contracts</RootNamespace>
+        <RootNamespace>Fundalyzer.Contracts</RootNamespace>
         <TargetFramework>net7.0</TargetFramework>
         <LangVersion>11</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <NoWarn>
+            CS1591, <!-- Missing XML comment for publicly visible type or member -->
+            CS1573, <!-- Parameter has no matching param tag in the XML comment -->
+            CS1712, <!-- Type parameter has no matching typeparam tag in the XML comment (but other type parameters do) -->
+        </NoWarn>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -20,6 +25,10 @@
     <ItemGroup Label="PackageReferences">
         <PackageReference Include="CodeChops.Contracts" Version="0.25.1" />
         <PackageReference Include="CodeChops.DomainModeling" Version="2.12.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="FundaApi" />
     </ItemGroup>
 
 </Project>

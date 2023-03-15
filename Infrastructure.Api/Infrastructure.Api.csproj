@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Label="Main">
-        <RootNamespace>Funda.Infrastructure.Api</RootNamespace>
+        <RootNamespace>Fundalyzer.Infrastructure.Api</RootNamespace>
         <TargetFramework>net7.0</TargetFramework>
         <LangVersion>11</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <NoWarn>
+            CS1591, <!-- Missing XML comment for publicly visible type or member -->
+            CS1573, <!-- Parameter has no matching param tag in the XML comment -->
+            CS1712, <!-- Type parameter has no matching typeparam tag in the XML comment (but other type parameters do) -->
+        </NoWarn>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -19,11 +24,17 @@
 
     <ItemGroup Label="ProjectReferences">
         <ProjectReference Include="..\Contracts\Contracts.csproj" />
+        <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup Label="PackageReferences">
+        <PackageReference Include="CodeChops.MagicEnums" Version="3.8.3" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
         <PackageReference Include="CodeChops.DomainModeling" Version="2.12.3" />
-        <PackageReference Include="Flurl.Http" Version="3.2.4" />
+        <PackageReference Include="RestSharp" Version="109.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="7.0.0" />
         <PackageReference Include="Polly" Version="7.2.3" />
     </ItemGroup>
 
