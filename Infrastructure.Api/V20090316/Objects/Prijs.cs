@@ -1,18 +1,21 @@
-﻿namespace Fundalyzer.Infrastructure.Api.V20090316.Objects;
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+#pragma warning disable CS8618
+
+namespace Fundalyzer.Infrastructure.Api.V20090316.Objects;
 
 [SuppressMessage("ReSharper", "IdentifierTypo")]
 [SuppressMessage("ReSharper", "StringLiteralTypo")]
 public record Prijs
 {
-    public required bool GeenExtraKosten { get; init; }
-    public required string HuurAbbreviation { get; init; }
-    public required long? Huurprijs { get; init; }
-    public required string HuurprijsOpAanvraag { get; init; }
-    public required long? HuurprijsTot { get; init; }
-    public required string KoopAbbreviation { get; init; }
-    public required long? Koopprijs { get; init; }
-    public required string KoopprijsOpAanvraag { get; init; }
-    public required long? KoopprijsTot { get; init; }
-    public required long? OriginelePrijs { get; init; }
-    public required string VeilingText { get; init; }
+    public bool GeenExtraKosten { get; init; }
+    public string HuurAbbreviation { get; init; }
+    public long? Huurprijs { get; init; }
+    public string HuurprijsOpAanvraag { get; init; }
+    public long? HuurprijsTot { get; init; }
+    public string KoopAbbreviation { get; init; }
+    public long? Koopprijs { get; init; }
+    public string KoopprijsOpAanvraag { get; init; }
+    public long? KoopprijsTot { get; init; }
+    public long? OriginelePrijs { get; init; }
+    public string VeilingText { get; init; }
 }

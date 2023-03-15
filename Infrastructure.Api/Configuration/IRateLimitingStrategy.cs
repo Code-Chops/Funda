@@ -1,4 +1,6 @@
-﻿namespace Fundalyzer.Infrastructure.Api.Configuration;
+﻿using Fundalyzer.Infrastructure.Api.V20090316;
+
+namespace Fundalyzer.Infrastructure.Api.Configuration;
 
 /// <summary>
 /// Defines how rate limiting is handled and it occurs.
@@ -10,5 +12,5 @@ public interface IRateLimitingStrategy
     /// </summary>
     /// <param name="action">The function that sends the HTTP Request.</param>
     /// <returns>The response from the Funda API.</returns>
-    Task<RestResponse> ExecuteAsync(Func<Task<RestResponse>> action);
+    Task<RestResponse<Main>> ExecuteAsync(Func<Task<RestResponse<Main>>> action);
 }

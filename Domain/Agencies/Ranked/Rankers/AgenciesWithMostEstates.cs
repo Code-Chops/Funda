@@ -16,10 +16,10 @@ public abstract record AgenciesWithMostEstates<TSelf> : AgencyRanker<TSelf>, ICo
 		var countY = y?.Estates.Count ?? 0;
 		
 		if (countX < countY)
-			return 1;
+			return -1;
 
 		if (countX > countY)
-			return -1;
+			return 1;
 
 		return 0;
 	}

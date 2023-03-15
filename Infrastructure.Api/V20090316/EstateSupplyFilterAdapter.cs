@@ -8,9 +8,16 @@ public sealed record EstateSupplyFilterAdapter
 {
 	public EstateSupplyFilter ConvertToSupplyFilter(IAgencyRanker ranker)
 	{
-		var facilities = ranker.EstateHasGarden
-			? Faciliteiten.Tuin
-			: (Faciliteiten?)null;
+		Faciliteiten? facilities = null;
+
+		if (ranker.Facilities is not null)
+		{
+			if (ranker.Facilities.HasFlag(EstateFacilities.Garden))
+				facilities = Faciliteiten.Tuin;
+					
+			if (ranker.Facilities.HasFlag(EstateFacilities.SwimmingPool))
+				facilities = Faciliteiten.Zwembad;
+		}
 
 		return new(supplyType: SoortAanbod.Koop, ranker.City, facilities);
 	}

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Fundalyzer.Infrastructure.Api.V20090316;
 using Polly;
 
 namespace Fundalyzer.Infrastructure.Api.Configuration;
@@ -9,9 +10,9 @@ namespace Fundalyzer.Infrastructure.Api.Configuration;
 public sealed class RetryRateLimitingStrategy : IRateLimitingStrategy
 {
     private const int DefaultRetries = 5;
-    private static readonly TimeSpan DefaultRetryInterval = TimeSpan.FromSeconds(3);
+    private static readonly TimeSpan DefaultRetryInterval = TimeSpan.FromSeconds(10);
     
-    private AsyncPolicy<RestResponse> Policy { get; }
+    private AsyncPolicy<RestResponse<Main>> Policy { get; }
 
     /// <summary>
     /// Creates an instance with reasonable default values for the rate limits described by the API.
@@ -27,12 +28,12 @@ public sealed class RetryRateLimitingStrategy : IRateLimitingStrategy
     public RetryRateLimitingStrategy(int retries, TimeSpan retryInterval)
     {
         this.Policy = Polly.Policy
-            .HandleResult<RestResponse>(response => response.StatusCode == HttpStatusCode.TooManyRequests)
+            .HandleResult<RestResponse<Main>>(response => response.StatusCode is HttpStatusCode.TooManyRequests or HttpStatusCode.Unauthorized)
             .WaitAndRetryAsync(retries, _ => retryInterval);
     }
 
     /// <inheritdoc />
-    public Task<RestResponse> ExecuteAsync(Func<Task<RestResponse>> action)
+    public Task<RestResponse<Main>> ExecuteAsync(Func<Task<RestResponse<Main>>> action)
     {
         return this.Policy.ExecuteAsync(action);
     }

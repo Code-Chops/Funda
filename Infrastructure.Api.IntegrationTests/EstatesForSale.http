@@ -2,4 +2,3 @@
 
 # Returns all estates that are for sale (page 1).
 GET https://partnerapi.funda.nl/feeds/Aanbod.svc/json/ac1b0b1572524640a0ecc54de453ea9f/?type=koop&page=1&pagesize=25
-

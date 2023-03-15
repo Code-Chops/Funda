@@ -1,85 +1,84 @@
-﻿namespace Fundalyzer.Infrastructure.Api.V20090316.Objects;
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+#pragma warning disable CS8618
+
+namespace Fundalyzer.Infrastructure.Api.V20090316.Objects;
 
 [SuppressMessage("ReSharper", "IdentifierTypo")]
 [SuppressMessage("ReSharper", "StringLiteralTypo")]
 public record Object
 {
-    public required string AangebodenSindsTekst { get; init; }
-    public required DateTime? AanmeldDatum { get; init; }
-    public required long? AantalBeschikbaar { get; init; }
-    public required long? AantalKamers { get; init; }
-    public required long? AantalKavels { get; init; }
-    public required Aanvaarding? Aanvaarding { get; init; }
-    public required string Adres { get; init; }
-    public required long Afstand { get; init; }
-    public required BronCode BronCode { get; init; }
-    public required List<object> ChildrenObjects { get; init; }
-    public required DateTime? DatumAanvaarding { get; init; }
-    public required DateTime? DatumOndertekeningAkte { get; init; }
-    public required Uri Foto { get; init; }
-    public required Uri FotoLarge { get; init; }
-    public required Uri FotoLargest { get; init; }
-    public required Uri FotoMedium { get; init; }
-    public required Uri FotoSecure { get; init; }
-    public required DateTime? GewijzigdDatum { get; init; }
-    public required long? GlobalId { get; init; }
-    public required Guid GroupByObjectType { get; init; }
-    public required bool Heeft360GradenFoto { get; init; }
-    public required bool HeeftBrochure { get; init; }
-    public required bool HeeftOpenhuizenTopper { get; init; }
-    public required bool HeeftOverbruggingsgrarantie { get; init; }
-    public required bool HeeftPlattegrond { get; init; }
-    public required bool HeeftTophuis { get; init; }
-    public required bool HeeftVeiling { get; init; }
-    public required bool HeeftVideo { get; init; }
-    public required long? HuurPrijsTot { get; init; }
-    public required long? Huurprijs { get; init; }
-    public required string HuurprijsFormaat { get; init; }
-    public required Guid Id { get; init; }
-    public required long? InUnitsVanaf { get; init; }
-    public required bool IndProjectObjectType { get; init; }
-    public required bool? IndTransactieMakelaarTonen { get; init; }
-    public required bool IsSearchable { get; init; }
-    public required bool IsVerhuurd { get; init; }
-    public required bool IsVerkocht { get; init; }
-    public required bool IsVerkochtOfVerhuurd { get; init; }
-    public required long? Koopprijs { get; init; }
-    public required string KoopprijsFormaat { get; init; }
-    public required long? KoopprijsTot { get; init; }
-    public required Land? Land { get; init; }
-    public required long MakelaarId { get; init; }
-    public required string MakelaarNaam { get; init; }
-    public required Uri MobileUrl { get; init; }
-    public required string Note { get; init; }
-    public required List<object> OpenHuis { get; init; }
-    public required long Oppervlakte { get; init; }
-    public required long? Perceeloppervlakte { get; init; }
-    public required string Postcode { get; init; }
-    public required Prijs Prijs { get; init; }
-    public required string PrijsGeformatteerdHtml { get; init; }
-    public required string PrijsGeformatteerdTextHuur { get; init; }
-    public required string PrijsGeformatteerdTextKoop { get; init; }
-    public required List<Producten> Producten { get; init; }
-    public required Project Project { get; init; }
-    public required string ProjectNaam { get; init; }
-    public required PromoLabel PromoLabel { get; init; }
-    public required string PublicatieDatum { get; init; }
-    public required long PublicatieStatus { get; init; }
-    public required DateTime? SavedDate { get; init; }
-    public required SoortAanbod SoortAanbod { get; init; }
-    public required long ObjectSoortAanbod { get; init; }
-    public required string StartOplevering { get; init; }
-    public required string TimeAgoText { get; init; }
-    public required DateTime? TransactieAfmeldDatum { get; init; }
-    public required string TransactieMakelaarId { get; init; }
-    public required string TransactieMakelaarNaam { get; init; }
-    public required long TypeProject { get; init; }
-    public required Uri Url { get; init; }
-    public required VerkoopStatus VerkoopStatus { get; init; }
-    public required double Wgs84X { get; init; }
-    public required double Wgs84Y { get; init; }
-    public required long? WoonOppervlakteTot { get; init; }
-    public required long? Woonoppervlakte { get; init; }
-    public required string Woonplaats { get; init; }
-    public required List<long> ZoekType { get; init; }
+    public string AangebodenSindsTekst { get; init; }
+    public long? AantalBeschikbaar { get; init; }
+    public long? AantalKamers { get; init; }
+    public long? AantalKavels { get; init; }
+    public string Adres { get; init; }
+    public long Afstand { get; init; }
+    //public BronCode BronCode { get; init; }
+    public List<object> ChildrenObjects { get; init; }
+    public DateTime? DatumAanvaarding { get; init; }
+    public DateTime? DatumOndertekeningAkte { get; init; }
+    public Uri Foto { get; init; }
+    public Uri FotoLarge { get; init; }
+    public Uri FotoLargest { get; init; }
+    public Uri FotoMedium { get; init; }
+    public Uri FotoSecure { get; init; }
+    public DateTime? GewijzigdDatum { get; init; }
+    public long? GlobalId { get; init; }
+    public Guid GroupByObjectType { get; init; }
+    public bool Heeft360GradenFoto { get; init; }
+    public bool HeeftBrochure { get; init; }
+    public bool HeeftOpenhuizenTopper { get; init; }
+    public bool HeeftOverbruggingsgrarantie { get; init; }
+    public bool HeeftPlattegrond { get; init; }
+    public bool HeeftTophuis { get; init; }
+    public bool HeeftVeiling { get; init; }
+    public bool HeeftVideo { get; init; }
+    public long? HuurPrijsTot { get; init; }
+    public long? Huurprijs { get; init; }
+    public string HuurprijsFormaat { get; init; }
+    public Guid Id { get; init; }
+    public long? InUnitsVanaf { get; init; }
+    public bool IndProjectObjectType { get; init; }
+    public bool? IndTransactieMakelaarTonen { get; init; }
+    public bool IsSearchable { get; init; }
+    public bool IsVerhuurd { get; init; }
+    public bool IsVerkocht { get; init; }
+    public bool IsVerkochtOfVerhuurd { get; init; }
+    public long? Koopprijs { get; init; }
+    public string KoopprijsFormaat { get; init; }
+    public long? KoopprijsTot { get; init; }
+    public Land? Land { get; init; }
+    public long MakelaarId { get; init; }
+    public string MakelaarNaam { get; init; }
+    public Uri MobileUrl { get; init; }
+    public string Note { get; init; }
+    public List<object> OpenHuis { get; init; }
+    public long Oppervlakte { get; init; }
+    public long? Perceeloppervlakte { get; init; }
+    public string Postcode { get; init; }
+    public Prijs Prijs { get; init; }
+    public string PrijsGeformatteerdHtml { get; init; }
+    public string PrijsGeformatteerdTextHuur { get; init; }
+    public string PrijsGeformatteerdTextKoop { get; init; }
+    public Project Project { get; init; }
+    public string ProjectNaam { get; init; }
+    public PromoLabel PromoLabel { get; init; }
+    public string PublicatieDatum { get; init; }
+    public long PublicatieStatus { get; init; }
+    public DateTime? SavedDate { get; init; }
+    public SoortAanbod SoortAanbod { get; init; }
+    public long ObjectSoortAanbod { get; init; }
+    public string StartOplevering { get; init; }
+    public string TimeAgoText { get; init; }
+    public DateTime? TransactieAfmeldDatum { get; init; }
+    public string TransactieMakelaarId { get; init; }
+    public string TransactieMakelaarNaam { get; init; }
+    public long TypeProject { get; init; }
+    public Uri Url { get; init; }
+    public double Wgs84X { get; init; }
+    public double Wgs84Y { get; init; }
+    public long? WoonOppervlakteTot { get; init; }
+    public long? Woonoppervlakte { get; init; }
+    public string Woonplaats { get; init; }
+    public List<long> ZoekType { get; init; }
 }

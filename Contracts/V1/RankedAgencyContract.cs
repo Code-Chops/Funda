@@ -1,6 +1,6 @@
-﻿namespace Fundalyzer.Contracts.FundalyzerApi;
+﻿namespace Fundalyzer.Contracts.V1;
 
-public sealed record RankedAgency : Contract
+public sealed record RankedAgencyContract : Contract
 {
 	public required int Rank { get; init; }
 	public required string Name { get; init; }

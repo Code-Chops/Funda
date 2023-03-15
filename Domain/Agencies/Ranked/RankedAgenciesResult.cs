@@ -1,18 +1,19 @@
-﻿using Fundalyzer.Domain.Estates;
+﻿using System.Collections.Immutable;
+using Fundalyzer.Domain.Estates;
 
 namespace Fundalyzer.Domain.Agencies.Ranked;
 
-[GenerateIdentity<(EstateCity, EstateHasGarden)>(nameof(TopAgenciesId))]
-public class RankedAgenciesResult : ListEntity<RankedAgenciesResult, TopAgenciesId, RankedAgency>
+public sealed record RankedAgenciesResult
 {
-	public EstateCity City => this.Id.Value.Item1;
-	public EstateHasGarden EstateHasGarden => this.Id.Value.Item2;
+	public EstateCity City { get; }
+	public EstateFacilities? EstateFacilities { get; }
 
-	public IReadOnlyCollection<RankedAgency> Agencies => this.List;
-	protected override IReadOnlyList<RankedAgency> List { get; }
+	public ImmutableList<RankedAgency> Agencies { get; }
 
-	public RankedAgenciesResult(IReadOnlyList<RankedAgency> list)
+	public RankedAgenciesResult(EstateCity city, EstateFacilities? facilities, IEnumerable<RankedAgency> agencies)
 	{
-		this.List = list;
+		this.City = city;
+		this.EstateFacilities = facilities;
+		this.Agencies = agencies.ToImmutableList();
 	}
 }

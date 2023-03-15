@@ -4,11 +4,11 @@ namespace Fundalyzer.Domain.Estates;
 public sealed class Estate : Entity<EstateId>
 {
 	public EstateCity City { get; }
-	public EstateHasGarden HasGarden { get; }
+	public EstateFacilities? Facilities { get; }
 
-	public Estate(EstateCity city, EstateHasGarden hasGarden)
+	public Estate(EstateCity city, EstateFacilities? facilities)
 	{
 		this.City = city;
-		this.HasGarden = hasGarden;
+		this.Facilities = facilities;
 	}
 }

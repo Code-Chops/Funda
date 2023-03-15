@@ -27,8 +27,4 @@
         <PackageReference Include="CodeChops.DomainModeling" Version="2.12.3" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="FundaApi" />
-    </ItemGroup>
-
 </Project>

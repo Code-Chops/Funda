@@ -6,24 +6,26 @@ public sealed record EstateSupplyFilter
 {
 	public override string ToString() => this.Name;
 	
-	public SoortAanbod SupplyType { get; } 
+	public string? SupplyType { get; } 
 	public string? QueryString { get; } 
 	
 	public string Name { get; }
 	
 	public EstateSupplyFilter(SoortAanbod supplyType, string? city, Faciliteiten? facilities)
 	{
-		this.SupplyType = supplyType;
-
+		if (supplyType != SoortAanbod.None)
+			this.SupplyType = supplyType.ToString().ToLowerInvariant();
+		
 		if (city is not null) 
-			this.QueryString = $"/{city}";
+			this.QueryString += $"/{city.ToLowerInvariant()}";
 
 		var facilityList = Enum.GetValues<Faciliteiten>()
 			.Where(facility => facilities?.HasFlag(facility) ?? false)
+			.Select(facility => facility.ToString().ToLowerInvariant())
 			.ToList();
 		
 		if (facilityList.Any())
-			this.QueryString = $"/{String.Join("/", facilityList)}";
+			this.QueryString += $"/{String.Join("/", facilityList)}";
 
 		var optionalCity = city is not null ? $" in {city}" : null;
 		var optionalFacilities = facilityList.Any() 

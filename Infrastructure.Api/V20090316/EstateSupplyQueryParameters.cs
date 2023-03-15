@@ -21,5 +21,5 @@ public record EstateSupplyQueryParameter : MagicStringEnum<EstateSupplyQueryPara
 	public static readonly EstateSupplyQueryParameter Type		= CreateMember("type");
 
 	public static readonly EstateSupplyQueryParameter Page		= CreateMember("page");
-	public static readonly EstateSupplyQueryParameter PageSize	= CreateMember("pageSize");
+	public static readonly EstateSupplyQueryParameter PageSize	= CreateMember("pagesize");
 }

@@ -1,9 +1,8 @@
 using CodeChops.Contracts.ExceptionHandlers;
 using Fundalyzer.Application;
-using Fundalyzer.Infrastructure.Api.Configuration;
+using Fundalyzer.Infrastructure.Api;
 
 var builder = WebApplication.CreateBuilder(args);
-var config = builder.Configuration;
 
 // Add swagger (and UI).
 builder.Services.AddEndpointsApiExplorer();
@@ -20,10 +19,10 @@ builder.Services.AddApiVersioning(setup =>
 builder.Services.AddResponseCaching();
 builder.Services.AddControllers(options =>
 {
-    options.CacheProfiles.Add("30Seconds",
+    options.CacheProfiles.Add("5Seconds",
         new CacheProfile()
         {
-            Duration = 30
+            Duration = 5
         });
 });
 
@@ -36,10 +35,10 @@ builder.Logging.AddConsole();
 
 // You cannot pass IOptions<> directly to a static method during startup configuration in C# .NET. :(
 // This is because IOptions<> is typically used to inject configuration options into a class instance or service constructor.
-var configRoot = builder.Configuration.GetRequiredSection(Settings.SectionName);
+var settings = builder.Configuration.GetSection(Settings.SectionName).Get<Settings>() ?? throw new ApplicationException("Configuration settings not found!");
 
 // Add application layer registration.
-builder.Services.AddApplicationLayer(configRoot);
+builder.Services.AddApplicationLayer(settings);
 
 var app = builder.Build();
 
@@ -58,7 +57,7 @@ app.UseResponseCaching();
 
 app.UseHealthChecks("/health");
 
-app.UseExceptionHandler(app => app.Run(async context =>
+app.UseExceptionHandler(a => a.Run(async context =>
     await context.RequestServices.GetRequiredService<RequestExceptionHandler>().HandleExceptionAsync()));
 
 app.Run();

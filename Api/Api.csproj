@@ -2,7 +2,7 @@
 	
 	<PropertyGroup Label="Main">
 		<RootNamespace>Fundalyzer.Api</RootNamespace>
-		<Version>0.0.1</Version>
+		<Version>1.0.0</Version>
 		<TargetFramework>net7.0</TargetFramework>
 		<LangVersion>11</LangVersion>
 		<Nullable>enable</Nullable>
@@ -42,6 +42,11 @@
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <None Include="appsettings.Development.json" />
+	  <None Include="appsettings.json" />
 	</ItemGroup>
 
 </Project>

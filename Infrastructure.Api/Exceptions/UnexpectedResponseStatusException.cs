@@ -4,7 +4,7 @@ using Fundalyzer.Infrastructure.Api.HttpClient;
 namespace Fundalyzer.Infrastructure.Api.Exceptions;
 
 /// <summary>
-/// Is thrown when an other HTTP status code is returned by the Funda API then the expected ones at <see cref="FundaHttpClient.GetAsync{TReturn}"/>
+/// Is thrown when an other HTTP status code is returned by the Funda API then the expected ones at <see cref="FundaHttpClient.GetPageAsync"/>
 /// </summary>
 public sealed class UnexpectedResponseStatusException : HttpRequestException
 {

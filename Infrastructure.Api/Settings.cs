@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Fundalyzer.Infrastructure.Api.Configuration;
+namespace Fundalyzer.Infrastructure.Api;
 
 /// <summary>
 /// Settings which are retrieved from appsettings.json.
@@ -26,21 +26,14 @@ public sealed record Settings
 	/// <summary>
 	/// The size of each page requested.
 	/// </summary>
-	[Range(1, 25, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+	[Range(0, 250, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
 	[Required]
 	public required int PageSize { get; init; }
-
-	/// <summary>
-	/// The cache duration (in seconds) of the Funda client.
-	/// </summary>
-	[Range(1, 60 * 60, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-	[Required]
-	public required double CacheDurationInSeconds { get; init; }
-
+	
 	/// <summary>
 	/// The delay (in milliseconds) between each request (so the server won't get spammed).
 	/// </summary>
-	[Range(600, 5000, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+	[Range(30, 5000, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
 	[Required]
 	public required int RequestDelayInMilliseconds { get; init; }
 }

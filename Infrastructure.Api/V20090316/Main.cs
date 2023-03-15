@@ -5,7 +5,7 @@ namespace Fundalyzer.Infrastructure.Api.V20090316;
 
 [SuppressMessage("ReSharper", "IdentifierTypo")]
 [SuppressMessage("ReSharper", "StringLiteralTypo")]
-public record Page
+public record Main
 {
     public required long AccountStatus { get; init; }
     public required bool EmailNotConfirmed { get; init; }

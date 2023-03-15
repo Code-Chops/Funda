@@ -1,7 +1,8 @@
-﻿namespace Fundalyzer.Infrastructure.Api.HttpClient;
+﻿using Fundalyzer.Infrastructure.Api.V20090316;
+
+namespace Fundalyzer.Infrastructure.Api.HttpClient;
 
 public interface IFundaHttpClient
 {
-	Task<IEnumerable<TResponse>> GetListAsync<TResponse>(RestRequest request, CancellationToken cancellationToken);
-	Task<TResponse?> GetSingleAsync<TResponse>(RestRequest request, CancellationToken cancellationToken);
+	Task<Main?> GetPageAsync(RestRequest request, CancellationToken cancellationToken);
 }

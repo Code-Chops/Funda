@@ -5,7 +5,7 @@ namespace Fundalyzer.Domain.Agencies.Ranked.Rankers;
 public interface IAgencyRanker : IDomainService
 {
 	EstateCity City { get; }
-	EstateHasGarden EstateHasGarden { get; }
+	EstateFacilities? Facilities { get; }
 
 	Task<RankedAgenciesResult> ListAndRankAsync(CancellationToken cancellationToken);
 }

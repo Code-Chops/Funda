@@ -1,6 +1,4 @@
-﻿using Fundalyzer.Infrastructure.Api.Configuration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Xunit.DependencyInjection;
 using Xunit.DependencyInjection.Logging;
@@ -9,15 +7,19 @@ namespace Fundalyzer.Infrastructure.Api.IntegrationTests;
 
 public class Startup
 {
-	private static readonly string ApiInfrastructurePath = typeof(ApiInfrastructureRegistrationExtensions).Assembly.Location;
-	
 	public void ConfigureServices(IServiceCollection services)
 	{
-		var configRoot = new ConfigurationBuilder().AddJsonFile(ApiInfrastructurePath, optional: false).Build();
-
-		var accessor = new TestOutputHelperAccessor();
-		services.AddLogging(a => a.AddProvider(new XunitTestOutputLoggerProvider(accessor)));
-
-		services.AddApiInfrastructureLayer(configRoot.GetRequiredSection(Settings.SectionName));
+		var settings = new Settings()
+		{
+			ApiUrl = "http://partnerapi.funda.nl/feeds/Aanbod.svc/json",
+			ApiKey = "ac1b0b1572524640a0ecc54de453ea9f",
+			PageSize = 25,
+			RequestDelayInMilliseconds = 60
+		};
+		
+		services.AddApiInfrastructureLayer(settings);
 	}
+	
+	public void Configure(ILoggerFactory loggerFactory, ITestOutputHelperAccessor accessor) =>
+		loggerFactory.AddProvider(new XunitTestOutputLoggerProvider(accessor));
 }

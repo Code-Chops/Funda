@@ -6,7 +6,7 @@ public abstract record AgencyRanker<TSelf> : IAgencyRanker
 	where TSelf : AgencyRanker<TSelf>, IComparer<Agency>, IHasAgencyRankerLimit
 {
 	public abstract EstateCity City { get; }
-	public abstract EstateHasGarden EstateHasGarden { get; }
+	public abstract EstateFacilities? Facilities { get; }
 
 	private IEstateSupplyRepo EstateSupplyRepo { get; }
 
@@ -19,7 +19,7 @@ public abstract record AgencyRanker<TSelf> : IAgencyRanker
 			.Take(TSelf.RankingLength)
 			.ToList();
 
-		return new RankedAgenciesResult(orderedAgencies);
+		return new RankedAgenciesResult(this.City, this.Facilities, orderedAgencies);
 	}
 	
 	protected AgencyRanker(IEstateSupplyRepo estateSupplyRepo)
