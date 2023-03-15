@@ -44,13 +44,9 @@ These error codes ensure that error responses to external sources are unified an
 In my spare time I am creating a way to unify these error codes in a single MagicEnum, see my MagicEnum package: https://github.com/Code-Chops/MagicEnums.
 These error messages (and their parameters) can be localized in a Blazor client using my package https://github.com/Code-Chops/LightResources.
 
-
 ## Rate limiting
 The background job polls the Funda API once a second (is configurable).
 Also included in the FundaHttpClient is a `RateLimitingStrategy` which determines how the application should handle when an HTTP status code of `TooManyRequests` is received from Funda.
-
-## Magic enums
-Magic enums have been used twice throughout my code: https://github.com/Code-Chops/MagicEnums.
 
 ## Tests
 Many more unit and integration tests can be added. For example, the *.http files in Api could be placed in an integration test.
